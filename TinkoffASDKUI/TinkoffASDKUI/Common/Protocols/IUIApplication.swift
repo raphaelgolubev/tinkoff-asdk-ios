@@ -19,4 +19,8 @@ extension IUIApplication {
     }
 }
 
-extension UIApplication: IUIApplication {}
+extension UIApplication: IUIApplication {
+    func canOpenURL(_ url: URL) -> Bool {
+        return UIApplication.shared.canOpenURL(url)
+    }
+}
