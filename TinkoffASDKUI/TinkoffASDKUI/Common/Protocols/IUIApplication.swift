@@ -5,12 +5,13 @@
 //  Created by Aleksandr Pravosudov on 23.12.2022.
 //
 
+import Foundation
 import UIKit
 
 protocol IUIApplication {
     func canOpenURL(_ url: URL) -> Bool
 
-    func open(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey: Any], completionHandler completion: @MainActor @Sendable ((Bool) -> Void)?)
+    func open(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey: Any], completionHandler completion: ((Bool) -> Void)?)
 }
 
 extension IUIApplication {
@@ -20,7 +21,7 @@ extension IUIApplication {
 }
 
 extension UIApplication: IUIApplication {
-    func canOpenURL(_ url: URL) -> Bool {
-        return UIApplication.shared.canOpenURL(url)
+    func open(_ url: URL, options: [OpenExternalURLOptionsKey : Any], completionHandler completion: ((Bool) -> Void)?) {
+        
     }
 }
